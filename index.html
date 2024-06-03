@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--=============== Favicon ===============-->
+    <link
+      rel="shortcut icon"
+      href="images/favicon-32x32.png"
+      type="image/png"
+    />
+    <!--=============== Swiper CSS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!--=============== Boxicons ===============-->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!--=============== Custom StyleSheet ===============-->
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>FDelivery</title>
+  </head>
+  <body>
+    <!--=============== Header ===============-->
+    <header class="header">
+      <nav class="navbar">
+        <div class="row d-flex container">
+          <a href="index.html" class="logo d-flex">
+            <img src="images/logo.png" alt="" />
+          </a>
+
+          <ul class="nav-list d-flex">
+            <a href="index.html">Trang chủ</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="index.html#recipes">Món ăn</a>
+            <a href="index.html#testimonials">Đánh giá</a>
+            <a href="contact.html">Liên hệ</a>
+            <span class="close d-flex"><i class="bx bx-x"></i></span>
+          </ul>
+
+          <div class="col d-flex">
+            <form>
+              <div class="search-wrapper">
+                  <input type="search" id="searchInput" placeholder="Tìm kiếm mặt hàng của bạn." />
+                  <button class="search-button"><i class="bx bx-search"></i></button>
+              </div>
+            </form>         
+            <a href="javascript:void(0)" onclick="showCart()">
+              <div class="cart-icon d-flex">
+                  <i class="bx bx-shopping-bag"></i>
+                  <span id="cart-count">0</span>
+              </div>
+            </a>
+            <div class="user-icon signin-1">
+              <i class="bx bx-user-circle"></i>
+            </div>
+            <div class="btn signin-2">
+              <a>Đăng nhập</a>
+            </div>                       
+          </div>
+
+          <!-- Hamburger -->
+          <div class="hamburger d-flex">
+            <i class="bx bx-menu"></i>
+          </div>
+        </div>
+      </nav>
+
+      <!--=============== Home ===============-->
+      <div style="margin-top: 85px;" class="home">
+        <div class="row container">
+          <div class="col, slide-fade">
+            <div style="font-size: 1.55rem ;" class="faster">
+              Nhanh hơn cả nhanh
+              <div class="image d-flex">
+                <img src="images/french-fries.svg" alt="" />
+              </div>
+            </div>
+            <h1>             
+              Nhận món ăn của bạn <br />
+              được giao tận <br />
+              <span class="color">cửa nhà bạn</span>
+            </h1>
+            <p style="text-align: justify;">
+              Món ăn được giao đúng lúc. Đối tác giao đồ ăn thịnh hành. Chúng tôi giao đồ ăn ngon. Người bạn đồng hành của cơn đói của bạn.
+            </p>
+            <a href="#services" class="btn">Khám phá ẩm thực</a>
+          </div>
+          <div class="col">
+            <img class="swing" src="images/delivery-guy.svg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!--=============== SignIn Form ===============-->
+      <div class="wrapper" id="sign-in">
+        <form action="" class="form">
+          <h2>ĐĂNG NHẬP</h2>
+          <div class="control">
+            <label for="">Nhập Email:</label>
+            <input type="email" placeholder="Nhập Email của bạn" required />
+          </div>
+          <div class="control">
+            <label for="">Mật khẩu:</label>
+            <input type="password" id="password-login" placeholder="Mật khẩu của bạn" required />
+            <div style="padding-top: 10px;" class="checkbox d-flex">
+              <input type="checkbox" id="show-password-login" class="show-password-checkbox" />
+              <span for="show-password-login">Hiện mật khẩu</span>
+            </div>            
+          </div>
+          <div style="margin-top: -10px;" class="checkbox d-flex">
+            <input type="checkbox" />
+            <span>Nhớ tôi</span>
+          </div>
+          <button class="btn">Đăng nhập</button>
+          <div class="links">
+            <span>Bạn chưa có tài khoản? <a href="" class="show-sign-up">Tạo mới.</a></span>
+          </div>
+        </form>
+
+        <div class="close-form">
+          <i class="bx bx-x"></i>
+        </div>
+      </div>
+
+      <!--=============== SignUp Form ===============-->
+      <div class="modal" id="sign-up">
+          <form action="" class="form">
+            <h2>ĐĂNG KÝ</h2>
+            <div class="control">
+              <label for="email">Nhập Email:</label>
+              <input type="email" id="email" placeholder="Nhập Email của bạn" required/>
+              <span id="email-error" class="error"></span>
+            </div>
+            <div class="control">
+              <label for="password">Mật khẩu:</label>
+              <input type="password" id="password" placeholder="Nhập mật khẩu của bạn" required/>
+              <span id="password-error" class="error"></span>
+            </div>
+            <div class="control">
+              <label for="confirm-password">Nhập lại mật khẩu:</label>
+              <input type="password" id="confirm-password" placeholder="Nhập lại mật khẩu của bạn" required/>
+              <span id="confirm-password-error" class="error"></span>
+              <div style="padding-top: 10px;" class="checkbox d-flex">
+                <input type="checkbox" id="show-password-signup" class="show-password-checkbox" />
+                <span for="show-password-signup">Hiện mật khẩu</span>
+              </div>
+            </div>
+            <button class="btn">Đăng ký</button>
+            <div class="links">
+              <span>Bạn đã có tài khoản? <a href="" class="show-sign-in">Đăng nhập.</a></span>
+            </div>
+          </form>
+
+          <div class="close-form-modal">
+            <i class="bx bx-x"></i>
+          </div>
+      </div>
+
+
+      <!-- Add Cart -->
+      <div class="add-cart hidden" id="add-cart">
+        <form action="" class="form">
+            <h2>Giỏ hàng</h2>
+            <div id="empty-cart-message" class="empty-cart">
+                <i class="bx bxs-cart"></i>
+                <p>Không có sản phẩm nào trong giỏ hàng của bạn</p>
+            </div>
+            <ul id="cart-items" class="cart-items"></ul>
+            <p id="total-price">Tổng tiền: 0 VND</p>
+            <div class="cart-footer">
+              <a href="index.html#recipes"><button type="button" onclick="closeCart()">Thêm món</button></a>
+              <button type="button" onclick="checkout()">Thanh toán</button>
+            </div>
+        </form>
+        <div class="close-form-cart" onclick="closeCart()">
+            <i class="bx bx-x"></i>
+        </div>
+    </div>
+     
+    </header>
+    <!-- Modal Overlay for Success Message -->
+    <div class="success-modal-overlay" id="signup-success-overlay" style="display: none;">
+      <div class="success-modal-content">
+        <p>Đăng ký thành công!</p>
+        <button id="go-to-login-btn">Đăng nhập ngay</button>
+      </div>
+    </div>
+
+    <!--=============== Services ===============-->
+    <section class="section services" id="services">
+      <div class="row container">
+        <div class="col">
+          <h2>Tại sao chúng tôi là lựa chọn tốt nhất?</h2>
+          <p style="text-align: justify;">
+            Chúng tôi sử dụng ngũ cốc nguyên hạt và các sản phẩm từ sữa ít béo, 
+            giúp giảm nguy cơ mắc bệnh tim mạch bằng cách duy trì huyết áp và cholesterol ở mức bình thường.
+          </p>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="./images/meat-icon.svg" alt="" />
+            <h3>
+              <!-- Chọn món ăn yêu thích của bạn -->
+              Chọn món ăn <br />
+              yêu thích <br />
+              của bạn
+            </h3>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="./images/delivery-icon.svg" alt="" />
+            <h3>
+              Nhận  <br />
+              giao hàng <br />
+              tận nhà
+            </h3>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="./images/phone-icon.svg" alt="" />
+            <h3 style="font-size: 2.2rem;">              
+              Chúng ta có <br />
+              Hơn 400 đánh giá <br />
+              Trên ứng dụng của chúng tôi
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== About ===============-->
+    <section class="section about" id="about">
+      <div class="row container">
+        <div class="col">
+          <img src="./images/delivery-guy-2.svg" alt="" />
+        </div>
+        <div class="col">
+          <h2>Nhìn vào các lợi ích mà chúng tôi cung cấp cho bạn</h2>
+          <p>
+            Dịch vụ tốt có nghĩa là một dịch vụ thân thiện, chào đón. Một chủ nhà hàng không chỉ nên cố gắng tránh dịch vụ kém,
+             nhưng cũng cần cải thiện dịch vụ tốt hơn. 
+          </p>
+          <div class="d-grid">
+            <div class="card">
+              <img src="./images/car-icon.svg" alt="" />
+              <h4>Giao hàng miễn phí tận nhà</h4>
+              <span>Đối với tất cả các đơn hàng trên $50</span>
+            </div>
+            <div class="card">
+              <img src="./images/dollar-icon.svg" alt="" />
+              <h4>Chính sách hoàn trả & hoàn tiền</h4>
+              <span>Bảo đảm hoàn lại tiền</span>
+            </div>
+            <div class="card">
+              <img src="./images/security-icon.svg" alt="" />
+              <h4>Thanh toán an toàn</h4>
+              <span>Thanh toán 100% an toàn</span>
+            </div>
+            <div class="card">
+              <img src="./images/time-icon.svg" alt="" />
+              <h4>Hỗ trợ chất lượng</h4>
+              <span>Luôn trực tuyến 24/7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== Recipes ===============-->
+    <section class="section recipes" id="recipes">
+      <h2>Hãy thử các món ăn đặc biệt của chúng tôi</h2>
+      <div class="row container">
+        <div class="filters d-flex">
+          <span data-filter="All Product">Tất cả</span>
+          <span data-filter="Fast Food">Đồ ăn nhanh</span>
+          <span data-filter="Rice Menu">Món chính</span>
+          <span data-filter="Desserts">Món tráng miệng</span>
+          <span data-filter="Coffee">Cà phê</span>
+          <span data-filter="Pizza">Pizza</span>
+        </div>
+        <div class="products">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper" id="products-wrapper">
+              <!-- <div class="swiper-slide">
+                <div class="card">
+                  <div class="image"><img src="./images/meat-2.svg" alt=""></div>
+                  <div class="rating">
+                  <span><i class="bx bxs-star"></i></span>
+                  <span><i class="bx bxs-star"></i></span>
+                  <span><i class="bx bxs-star"></i></span>
+                  <span><i class="bx bxs-star"></i></span>
+                  <span><i class="bx bxs-star"></i></span>
+                  </div>
+                  <h4>Crispy Fried Chicken</h4>
+                  <div class="price">
+                    <span>Price</span><span class="color">$13.00</span>
+                  </div>
+                  <div class="button">Add To Cart+</div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="pagination">
+            <div class="custom-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== Testimonials ===============-->
+    <section class="section testimonials" id="testimonials">
+      <div class="row container">
+        <div class="col">
+          <div class="card" data-filter="a">
+            <div class="d-flex">
+              <div class="image">
+                <img src="./images/profile-1.jpg" alt="" />
+              </div>
+              <div>
+                <h4>Nguyễn Thị A</h4>
+                <span>Khách hàng</span>
+              </div>
+            </div>
+          </div>
+          <div class="card" data-filter="b">
+            <div class="d-flex">
+              <div class="image">
+                <img src="./images/profile-2.jpg" alt="" />
+              </div>
+              <div>
+                <h4>Nguyễn Thị B</h4>
+                <span>Khách hàng</span>
+              </div>
+            </div>
+          </div>
+          <div class="card" data-filter="c">
+            <div class="d-flex">
+              <div class="image">
+                <img src="./images/profile-3.jpg" alt="" />
+              </div>
+              <div>
+                <h4>Nguyễn Văn C</h4>
+                <span>Khách hàng</span>
+              </div>
+            </div>
+          </div>
+          <div class="card" data-filter="d">
+            <div class="d-flex">
+              <div class="image">
+                <img src="./images/profile-4.jpg" alt="" />
+              </div>
+              <div>
+                <h4>Nguyễn Thị D</h4>
+                <span>Khách hàng</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h2>
+            <!-- Những gì Khách hàng của chúng tôi đang nói -->
+            Khách hàng của chúng tôi <br />
+            <span>đang nói gì</span>
+          </h2>
+          <div class="test-wrapper">
+            <div class="testimonial active" data-id="a">
+              <div class="d-flex">
+                <div>
+                  <h4>Nguyễn Thị A</h4>
+                  <span>Khách hàng</span>
+                </div>
+
+                <div class="rating">
+                  <span><i class="bx bxs-star"></i></span>
+                  <span><i class="bx bxs-star"></i></span>
+                  <span><i class="bx bxs-star"></i></span>
+                  <span><i class="bx bxs-star"></i></span>
+                  <span><i class="bx bxs-star"></i></span>
+                </div>
+              </div>
+
+              <p id="p-tes">
+                “Thức ăn từ trang web này thật sự ngon! Tôi đã thử nhiều món từ đủ loại nhưng không bao giờ thất vọng.
+                 Dịch vụ giao hàng cũng rất tốt, thời gian giao hàng rất nhanh và đồ ăn luôn đến trong tình trạng tốt nhất.”
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== App ===============-->
+    <section class="section app" id="app-dl">
+      <div class="row container">
+        <div class="col">
+          <div class="circle">
+            <div class="inner-circle"></div>
+            <img src="./images/mobile.png" alt="" />
+          </div>
+        </div>
+        <div class="col">
+          <h2>
+            Không bao giờ cảm thấy đói! Tải ứng dụng di động của chúng tôi và đặt món ăn ngon.
+          </h2>
+          <p>
+            Đặt hàng trực tuyến đã giúp nhiều nhà hàng quản lý giờ cao điểm một cách rất hiệu quả.
+          </p>
+          <div class="d-flex">
+            <a href="index.html#app-dl"><img src="./images/app-store.png" alt="" /></a>
+            <a href="index.html#app-dl"><img src="./images/google-play.png" alt="" /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== Footer ===============-->
+    <footer class="footer">
+      <div class="row container fadeInUp">
+        <div class="col">
+          <div class="logo d-flex">
+            <img src="./images/logo.png" alt="logo" />
+          </div>
+          <p>
+            Giao đồ ăn bán lẻ là một dịch vụ chuyển phát trong đó một nhà hàng, cửa hàng hoặc dịch vụ giao đồ ăn độc lập cung cấp.
+          </p>
+          <div class="icons d-flex">
+            <div class="icon d-flex">
+              <a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a>             
+            </div>
+            <div class="icon d-flex"><a href="https://x.com/"><i class="bx bxl-twitter"></i></a></div>
+            <div class="icon d-flex"><a href="https://www.linkedin.com/"><i class="bx bxl-linkedin"></i></a></div>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <h4>Công ty</h4>
+            <a href="about.html">Về chúng tôi</a>
+            <a href="index.html#testimonials">Blog</a>
+            <a href="index.html#recipes">Tất cả sản phẩm</a>
+            <a href="contact.html">Bản đồ địa điểm</a>
+          </div>
+          <div>
+            <h4>Dịch vụ</h4>
+            <a href="index.html#recipes">Theo dõi đơn hàng</a>
+            <a href="index.html#recipes">Danh sách yêu thích</a>
+            <a href="index.html">Tài khoản của tôi</a>
+            <a href="index.html">Điều khoản & Điều kiện</a>
+          </div>
+          <div>
+            <h4>Hỗ trợ</h4>
+            <a href="index.html#testimonials">Câu hỏi thường gặp</a>
+            <a href="index.html">Chính sách </a>
+            <a href="index.html#recipes">Kinh doanh</a>
+            <a href="index.html">Hỗ trợ nghề nghiệp</a>
+          </div>
+          <div>
+            <h4>Liên hệ</h4>
+            <a href="contact.html">WhatsApp</a>
+            <a href="contact.html">Hỗ trợ 24/7</a>
+            <a href="contact.html">Trò chuyện nhanh</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="footer-bottom">
+      <div class="row container d-flex">
+      </div>
+    </div>
+
+    <!--=============== Swiper JS ===============-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!--=============== Custom JS ===============-->
+    <script src="js/testimonial.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

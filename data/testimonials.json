@@ -1,0 +1,33 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Nguyễn Thị A",
+      "firstName": "a",
+      "position": "Khách hàng",
+      "info": "“Thức ăn từ trang web này thật sự ngon! Tôi đã thử nhiều món từ đủ loại nhưng không bao giờ thất vọng. Dịch vụ giao hàng cũng rất tốt, thời gian giao hàng rất nhanh và đồ ăn luôn đến trong tình trạng tốt nhất.”",
+      "class": "active"
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Thị B",
+      "firstName": "b",
+      "position": "Khách hàng",
+      "info": "“Tôi rất thích thức ăn ở đây. Hương vị thơm ngon và đa dạng. Dịch vụ giao hàng cực kỳ chuyên nghiệp, luôn đảm bảo đồ ăn đến nhanh chóng và an toàn. Tôi đã đặt hàng nhiều lần và sẽ tiếp tục sử dụng dịch vụ này.”"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Văn C",
+      "firstName": "c",
+      "position": "Khách hàng",
+      "info": "“Dịch vụ khách hàng ở đây quá tốt! Họ luôn sẵn lòng giúp đỡ và trả lời mọi câu hỏi của tôi. Thậm chí khi tôi cần thay đổi đơn hàng, họ cũng đã xử lý nhanh chóng và linh hoạt. Rất ấn tượng!”"
+    },
+    {
+      "id": 4,
+      "name": "Nguyễn Thị D",
+      "firstName": "d",
+      "position": "Khách hàng",
+      "info": "“Tôi thích mọi thứ về trang web này! Từ chất lượng thức ăn đến dịch vụ khách hàng, tất cả đều tuyệt vời. Thêm vào đó, việc có thể đặt hàng trực tuyến giúp tiết kiệm thời gian và rất thuận tiện. Sẽ không ngần ngại giới thiệu cho bạn bè của tôi.”"
+    }
+  ]
+}
