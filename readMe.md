@@ -1,1 +1,1 @@
-Xin chào, tôi là CAM.
+Hello, we are from the Dream Chaser team.
